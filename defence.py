@@ -1,0 +1,1 @@
+print(len("topology/pod-1/node-201/sys/phys-[eth1/33]        "))

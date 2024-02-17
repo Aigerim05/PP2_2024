@@ -3,7 +3,6 @@ Define a class which has at least two methods: getString: to get a string from c
 printString: to print the string in upper case.
 '''
 
-
 class InputOutput:
     def __init__(self, s):
         self.s = s

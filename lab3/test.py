@@ -1,6 +1,9 @@
-def myfunc(n):
-  return lambda a : a * n
+# from itertools import permutations
 
-mydoubler = myfunc(2)
+# def perms(x):
+#     return list ((permutations(x)))
 
-print(mydoubler(11))
+# print(perms("abc"))
+
+
+
