@@ -23,7 +23,7 @@ class Wall(GameObject):
 
     def next_level(self):
         self.points = []
-        self.level = (self.level + 1) % 2
+        self.level = (self.level + 1) % 3
         self.load_level()
 
     

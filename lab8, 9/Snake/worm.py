@@ -3,10 +3,20 @@ from game_object import GameObject
 from game_object import Point 
 
 class Worm(GameObject):
-    def __init__(self, tile_width):
-        super().__init__([Point(20, 20)],(0,0,255), tile_width)
+    def __init__(self, color, tile_width):
+        super().__init__([Point(20, 20)],color, tile_width)
+        self.color = color
         self.DX = 1
         self.DY = 0
+    
+    def draw(self, screen):
+        for i in range(len(self.points)):
+            if i == 0: 
+                pygame.draw.rect(screen, (122,122,122), pygame.Rect(self.points[i].X, self.points[i].Y, self.tile_width, self.tile_width))
+            else:
+                pygame.draw.rect(screen, self.color, pygame.Rect(self.points[i].X, self.points[i].Y, self.tile_width, self.tile_width))
+
+            pygame.draw.rect(screen, (0, 0, 0), pygame.Rect(self.points[i].X, self.points[i].Y, self.tile_width, self.tile_width), 1)
 
     def move(self):
         for i in range(len(self.points) - 1, 0, -1):
@@ -30,6 +40,7 @@ class Worm(GameObject):
     # function to increase body of snake
     def increase(self, pos):
         self.points.append(Point(pos.X, pos.Y))
+        self.color = (255, 0, 0)
 
     def process_input(self,  events):
         for event in events:
