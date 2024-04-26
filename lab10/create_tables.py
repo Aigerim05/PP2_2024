@@ -4,14 +4,18 @@ from config import load_config
 def create_tables():
     commands = (
         """
-        CREATE TABLE phonebook (
+        CREATE TABLE username (
             id SERIAL PRIMARY KEY,
-            first_name VARCHAR(255) NOT NULL,
-            last_name VARCHAR(255) NOT NULL,
+            first_name VARCHAR(255) NOT NULL
+        )
+        """,
+        """
+        CREATE TABLE phone_number(
+            id SERIAL PRIMARY KEY,
             phone_number VARCHAR(255) NOT NULL
         )
-        """
-        ,)
+        """,
+        )
     try:
         config = load_config()
         with psycopg2.connect(**config) as conn:
